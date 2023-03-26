@@ -11,6 +11,8 @@
 		D709B63F29CDDF99004676EB /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D709B63E29CDDF99004676EB /* ContentView.swift */; };
 		D709B64129CDDF9A004676EB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D709B64029CDDF9A004676EB /* Assets.xcassets */; };
 		D709B64429CDDF9A004676EB /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D709B64329CDDF9A004676EB /* Preview Assets.xcassets */; };
+		D709B64B29CFCE4C004676EB /* MeditationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D709B64A29CFCE4C004676EB /* MeditationView.swift */; };
+		D709B64D29CFE51F004676EB /* PlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D709B64C29CFE51F004676EB /* PlayerView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +21,8 @@
 		D709B63E29CDDF99004676EB /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		D709B64029CDDF9A004676EB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D709B64329CDDF9A004676EB /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		D709B64A29CFCE4C004676EB /* MeditationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeditationView.swift; sourceTree = "<group>"; };
+		D709B64C29CFE51F004676EB /* PlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +57,8 @@
 			children = (
 				D709B63C29CDDF99004676EB /* MeditateTimeApp.swift */,
 				D709B63E29CDDF99004676EB /* ContentView.swift */,
+				D709B64A29CFCE4C004676EB /* MeditationView.swift */,
+				D709B64C29CFE51F004676EB /* PlayerView.swift */,
 				D709B64029CDDF9A004676EB /* Assets.xcassets */,
 				D709B64229CDDF9A004676EB /* Preview Content */,
 			);
@@ -138,7 +144,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				D709B63F29CDDF99004676EB /* ContentView.swift in Sources */,
+				D709B64B29CFCE4C004676EB /* MeditationView.swift in Sources */,
 				D709B63D29CDDF99004676EB /* MeditateTimeApp.swift in Sources */,
+				D709B64D29CFE51F004676EB /* PlayerView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
