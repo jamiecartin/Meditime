@@ -9,10 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        VStack {
-            
-        }
-        .padding()
+        MeditationView(meditationVM: MeditationViewModel(meditation: Meditation.data))
     }
 }
 
