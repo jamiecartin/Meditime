@@ -9,10 +9,10 @@ import SwiftUI
 
 struct PlayerView: View {
     @State private var value: Double = 0.0
+    @Environment(\.dismiss) var dismiss
     
     var body: some View {
         ZStack {
-            
             //MARK: Background Image
             Image("meditate")
                 .resizable()
@@ -20,12 +20,18 @@ struct PlayerView: View {
                 .frame(width: UIScreen.main.bounds.width)
                 .ignoresSafeArea()
             
+            //MARK: Blurred view
+            Rectangle()
+                .background(.thinMaterial)
+                .opacity(0.25)
+                .ignoresSafeArea()
+            
             VStack(spacing: 32) {
                 
                 //MARK: Dismiss Button
                 HStack {
                     Button {
-                        
+                        dismiss()
                     } label: {
                         Image(systemName: "xmark.circle.fill")
                             .font(.system(size: 36))
@@ -55,6 +61,44 @@ struct PlayerView: View {
                     }
                     .font(.caption)
                     .foregroundColor(.white)
+                }
+                
+                
+                //MARK: Playback control
+                HStack {
+                    //MARK: Repeat button
+                    PlaybackControlButton(systemName: "repeat") {
+                        
+                    }
+                    
+                    Spacer()
+                    
+                    //MARK: Backward button
+                    PlaybackControlButton(systemName: "gobackward.10") {
+                        
+                    }
+                    
+                    Spacer()
+                    
+                    //MARK: Play/pause button
+                    PlaybackControlButton(systemName: "play.circle.fill", fontSize: 44) {
+                        
+                    }
+                    
+                    Spacer()
+                    
+                    //MARK: Forward button
+                    PlaybackControlButton(systemName: "goforward.10") {
+                        
+                    }
+                    
+                    Spacer()
+                    
+                    //MARK: Stop button
+                    PlaybackControlButton(systemName: "stop.fill") {
+                        
+                    }
+                    
                 }
             }
             .padding(20)
