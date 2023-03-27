@@ -104,13 +104,17 @@ struct PlayerView: View {
             }
             .padding(20)
         }
+        .onAppear {
+            AudioManager.shared.startPlayer(track: meditationVM.meditation.track)
+            
+        }
     }
-}
-
-struct PlayerView_Previews: PreviewProvider {
-    static let meditationVM = MeditationViewModel(meditation: Meditation.data)
     
-    static var previews: some View {
-        PlayerView(meditationVM: meditationVM)
+    struct PlayerView_Previews: PreviewProvider {
+        static let meditationVM = MeditationViewModel(meditation: Meditation.data)
+        
+        static var previews: some View {
+            PlayerView(meditationVM: meditationVM)
+        }
     }
 }
