@@ -17,6 +17,7 @@
 		D709B65129D12339004676EB /* MeditationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D709B65029D12339004676EB /* MeditationViewModel.swift */; };
 		D709B65329D1270C004676EB /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D709B65229D1270C004676EB /* Extensions.swift */; };
 		D709B65529D12D79004676EB /* AudioManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D709B65429D12D79004676EB /* AudioManager.swift */; };
+		D709B65829D37689004676EB /* meditation.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D709B65729D37689004676EB /* meditation.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +32,8 @@
 		D709B65029D12339004676EB /* MeditationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeditationViewModel.swift; sourceTree = "<group>"; };
 		D709B65229D1270C004676EB /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		D709B65429D12D79004676EB /* AudioManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioManager.swift; sourceTree = "<group>"; };
+		D709B65729D37689004676EB /* meditation.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = meditation.mp3; sourceTree = "<group>"; };
+		D709B65929D3781A004676EB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +66,7 @@
 		D709B63B29CDDF99004676EB /* MeditateTime */ = {
 			isa = PBXGroup;
 			children = (
+				D709B65929D3781A004676EB /* Info.plist */,
 				D709B65629D12D8E004676EB /* Views */,
 				D709B63C29CDDF99004676EB /* MeditateTimeApp.swift */,
 				D709B64E29D0B3F7004676EB /* PlaybackControlButton.swift */,
@@ -70,6 +74,7 @@
 				D709B65429D12D79004676EB /* AudioManager.swift */,
 				D709B65229D1270C004676EB /* Extensions.swift */,
 				D709B64029CDDF9A004676EB /* Assets.xcassets */,
+				D709B65729D37689004676EB /* meditation.mp3 */,
 				D709B64229CDDF9A004676EB /* Preview Content */,
 			);
 			path = MeditateTime;
@@ -152,6 +157,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D709B64429CDDF9A004676EB /* Preview Assets.xcassets in Resources */,
+				D709B65829D37689004676EB /* meditation.mp3 in Resources */,
 				D709B64129CDDF9A004676EB /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -302,6 +308,7 @@
 				DEVELOPMENT_TEAM = VLWGCM7W8K;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = MeditateTime/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -331,6 +338,7 @@
 				DEVELOPMENT_TEAM = VLWGCM7W8K;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = MeditateTime/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

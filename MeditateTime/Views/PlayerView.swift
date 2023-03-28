@@ -9,6 +9,7 @@ import SwiftUI
 
 struct PlayerView: View {
     var meditationVM: MeditationViewModel
+    var isPreview: Bool = false
     @State private var value: Double = 0.0
     @Environment(\.dismiss) var dismiss
     
@@ -58,7 +59,7 @@ struct PlayerView: View {
                         
                         Spacer()
                         
-                        Text("1:00")
+                        Text("3:18")
                     }
                     .font(.caption)
                     .foregroundColor(.white)
@@ -105,7 +106,7 @@ struct PlayerView: View {
             .padding(20)
         }
         .onAppear {
-            AudioManager.shared.startPlayer(track: meditationVM.meditation.track)
+            AudioManager.shared.startPlayer(track: meditationVM.meditation.track, isPreview: isPreview)
             
         }
     }
@@ -114,7 +115,7 @@ struct PlayerView: View {
         static let meditationVM = MeditationViewModel(meditation: Meditation.data)
         
         static var previews: some View {
-            PlayerView(meditationVM: meditationVM)
+            PlayerView(meditationVM: meditationVM, isPreview: true)
         }
     }
 }

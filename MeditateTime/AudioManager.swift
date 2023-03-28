@@ -13,7 +13,7 @@ final class AudioManager {
     
     var player: AVAudioPlayer?
     
-    func startPlayer(track: String) {
+    func startPlayer(track: String, isPreview: Bool = false) {
         guard let url = Bundle.main.url(forResource: track, withExtension: "mp3") else {
             print("Resource not found: \(track)")
             return
@@ -21,9 +21,16 @@ final class AudioManager {
         
         
         do {
+            try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default)
+            try AVAudioSession.sharedInstance().setActive(true)
+            
             player = try AVAudioPlayer(contentsOf: url)
             
-            player?.play()
+            if isPreview {
+                player?.prepareToPlay()
+            } else {
+                player?.play()
+            }
         } catch {
             print("Failed to initialize player")
         }
