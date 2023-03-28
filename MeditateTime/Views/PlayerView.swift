@@ -12,7 +12,12 @@ struct PlayerView: View {
     var meditationVM: MeditationViewModel
     var isPreview: Bool = false
     @State private var value: Double = 0.0
+    @State private var isEditing: Bool = false
     @Environment(\.dismiss) var dismiss
+    
+    let timer = Timer
+        .publish(every: 1.0, on: .main, in: .common)
+        .autoconnect()
     
     var body: some View {
         ZStack {
@@ -51,16 +56,25 @@ struct PlayerView: View {
                 Spacer()
                 
                 //MARK: Playback
+                
                 VStack(spacing: 5) {
-                    Slider(value: $value, in: 0...60)
-                        .accentColor(.white)
+                    
+                    Slider(value: $value, in: 0...(audioManager.player?.duration ?? 60.0)) { editing in
+                        
+                        isEditing = editing
+                        
+                        if !editing {
+                            audioManager.player?.currentTime = value 
+                        }
+                    }
+                    .accentColor(.white)
                     
                     HStack {
-                        Text("0:00")
+                        Text(DateComponentsFormatter.positional.string(from: audioManager.player?.currentTime ?? 0.00) ?? "0:00")
                         
                         Spacer()
                         
-                        Text("3:18")
+                        Text(DateComponentsFormatter.positional.string(from: (audioManager.player?.duration ?? 0.00) - (audioManager.player?.currentTime ?? 0.00)) ?? "0:00")
                     }
                     .font(.caption)
                     .foregroundColor(.white)
@@ -98,10 +112,9 @@ struct PlayerView: View {
                     Spacer()
                     
                     //MARK: Stop button
-                    PlaybackControlButton(systemName: "stop.fill") {
+                    PlaybackControlButton(systemName: "stop.fill"){
                         
                     }
-                    
                 }
             }
             .padding(20)
@@ -110,6 +123,10 @@ struct PlayerView: View {
             audioManager.startPlayer(track: meditationVM.meditation.track, isPreview: isPreview)
             
         }
+        .onReceive(timer) { _ in
+            guard let player = audioManager.player, !isEditing else { return }
+            value = player.currentTime
+        }
     }
     
     struct PlayerView_Previews: PreviewProvider {
@@ -117,6 +134,7 @@ struct PlayerView: View {
         
         static var previews: some View {
             PlayerView(meditationVM: meditationVM, isPreview: true)
+                .environmentObject(AudioManager())
         }
     }
 }
