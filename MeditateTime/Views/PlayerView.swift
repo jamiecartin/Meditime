@@ -39,6 +39,7 @@ struct PlayerView: View {
                 //MARK: Dismiss Button
                 HStack {
                     Button {
+                        audioManager.stop()
                         dismiss()
                     } label: {
                         Image(systemName: "xmark.circle.fill")
@@ -64,7 +65,7 @@ struct PlayerView: View {
                         isEditing = editing
                         
                         if !editing {
-                            audioManager.player?.currentTime = value 
+                            audioManager.player?.currentTime = value
                         }
                     }
                     .accentColor(.white)
@@ -84,21 +85,23 @@ struct PlayerView: View {
                 //MARK: Playback control
                 HStack {
                     //MARK: Repeat button
-                    PlaybackControlButton(systemName: "repeat") {
-                        
+                    let color: Color = audioManager.isLooping ? .teal : .white
+                    PlaybackControlButton(systemName: "repeat", color: color) {
+                        audioManager.toggleLoop()
                     }
                     
                     Spacer()
                     
                     //MARK: Backward button
                     PlaybackControlButton(systemName: "gobackward.10") {
-                        
+                        audioManager.player?.currentTime -= 10
                     }
                     
                     Spacer()
                     
                     //MARK: Play/pause button
-                    PlaybackControlButton(systemName: "play.circle.fill", fontSize: 44) {
+                    PlaybackControlButton(systemName: audioManager.isPlaying ? "pause.circle.fill" : "play.circle.fill", fontSize: 44) {
+                        audioManager.playPause()
                         
                     }
                     
@@ -106,14 +109,15 @@ struct PlayerView: View {
                     
                     //MARK: Forward button
                     PlaybackControlButton(systemName: "goforward.10") {
-                        
+                        audioManager.player?.currentTime += 10
                     }
                     
                     Spacer()
                     
                     //MARK: Stop button
                     PlaybackControlButton(systemName: "stop.fill"){
-                        
+                        audioManager.stop()
+                        dismiss()
                     }
                 }
             }
